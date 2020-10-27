@@ -1,15 +1,31 @@
 # Project-on-ML-Pipeline-Optimization
 
 ## Summary
-#### This Project is one of the requisite projects of 'Machine Learning Engineer with Microsoft Azure Nanodegree Program'. In this project, we build and optimize an Azure ML pipeline using the Python SDK and a provided Scikit-learn model. This model is then compared to an Azure AutoML run.
+##### This Project is one of the requisite projects of 'Machine Learning Engineer with Microsoft Azure Nanodegree Program'. In this project, we build and optimize an Azure ML pipeline using the Python SDK and a provided Scikit-learn model. This model is then compared to an Azure AutoML run.
 
 ## Introduction
-#### In this project we were given a custom-coded model—a standard Scikit-learn Logistic Regression—the hyperparameters of which we had to optimize using HyperDrive. Later on we used AutoML to build and optimize a model on the same dataset, so that we can compare the results of the two methods.
+##### In this project we were given a custom-coded model—a standard Scikit-learn Logistic Regression—the hyperparameters of which we had to optimize using HyperDrive. Later on we used AutoML to build and optimize a model on the same dataset, so that we can compare the results of the two methods.
 
+### Dataset and Algorithm:
+
+##### The dataset is a UCI Bank Marketing dataset. The classification goal is to predict if a client will subscribe to a term deposit with the bank.
+##### The dataset was given in form of a url. We had to create a tabular dataset using using TabularDatasetfactory class. The data is split in train and test sets in ratio of 77:33. It is preprocessed and cleaned by passing it through a training script train.py. 
+##### Logistic Regression is used as the classification algorithm with accuracy as the primary metric.
 
 ### A. Hyperdrive Pipeline
 
-#### We were given a starter code which had a train.py file and a jupyter file. We had to complete some sections of the code.  We had to import data from a URL, clean the data, and pass the cleaned data to the pipeline.
+#### We were given a starter code and a train.py script. We had to complete some sections of the code.  We had to import data from a URL, clean the data, and pass the cleaned data to the pipeline.
+
+### Hyperparameters to be Optimized for Hyperdrive Experiment
+1. RandomParameterSampling class:
+In this Parameter values of the parameter space are chosen from a set of discrete values or distribution over a continuous range. We used the choice function to define our 2 parameters- inverse regularization(C) and maximum iterations(max_iter), with a set of options. 
+#### The benefits of using these parameters are:
+ a. Inverse regularization parameter(C)- Regularization is applying a penalty to increasing the magnitude of parameter values in order to de-incentivize overfitting. Here we used an inverse regularisation parameter C =1/λ. Lowering C - would strengthen the Lambda regulator.
+ b. Max_iter: Maximum number of iterations taken for the solvers to converge. We can vary it according to the number of times we want our experiment to learn from data.
+
+2. Policy for Early Stopping: 
+We used Bandit policy for the early stopping of the experiment. This policy uses criteria like slack factor, slack amount, and evaluation_interval as its parameters. Any run that doesn't fall within the slack factor or slack amount with respect to the primary metric gets terminated and saves time and compute resources.
+
 
 #### This part of the project involved the following steps:
 
@@ -35,12 +51,21 @@
 3. The best model was saved 
 4. AutoML also provides a glimpse of the top K parameters (can be seen in the studio) and their individual impact on the model.
 
+######  Voting Ensemble was the best algorithm in the automl run with an accuracy of 91.79%. The top K features that impact the model performance included Duration, nr.employed, emp.var.rate.
+
+
 
 ### Results
 
-Comparing the results of the two approaches, we find that Hyperdrive optimisation gives an accuracy of 90.92% whereas AutoMl gives an accuracy of 91.79% which is almost a 1% improvement.
+Comparing the results of the two approaches, we find that Hyperdrive optimization gives an accuracy of 90.92% whereas AutoMl gives an accuracy of 91.79% which is almost a 1% improvement.
 The power of AutoML lies in the fact that it uses very powerful ensemble techniques like XGBoost, VotingEnsemble, LigthBGM and Random Forest in its pipeline and cross validates the models by splitting data.
 It is indeed a powerful and quick tool that data scientists can use to get a baseline model while working on huge datasets.
+
+
+### Future Improvements and Recommendations
+
+In future, the hyperparameters can further be tuned up in hyperdrive for getting better results. Experiment can also be iterated over more number of times to see if performance of the model improves over more iterations.
+
 
 
 
