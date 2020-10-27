@@ -1,9 +1,9 @@
 # Project-on-ML-Pipeline-Optimization
 
-##Summary
+## Summary
 #### This Project is one of the requisite projects of 'Machine Learning Engineer with Microsoft Azure Nanodegree Program'. In this project, we build and optimize an Azure ML pipeline using the Python SDK and a provided Scikit-learn model. This model is then compared to an Azure AutoML run.
 
-##Introduction
+## Introduction
 #### In this project we were given a custom-coded model—a standard Scikit-learn Logistic Regression—the hyperparameters of which we had to optimize using HyperDrive. Later on we used AutoML to build and optimize a model on the same dataset, so that we can compare the results of the two methods.
 
 
@@ -30,10 +30,10 @@
 #### In this part too,w e were given a starter code.  We had to again import data from a URL, clean the data, and pass the cleaned data to the automl run.
 
 #### This part of the project involved the following steps:
-1.Data was cleaned and split to train and label
-2.We had to modify the automl_config parameters and submit it
-3.The best model was saved 
-4. ML studio also provides the top K parameters and their individual impact on the model.
+1. Data was cleaned and split to train and label
+2. We had to modify the automl_config parameters and submit it
+3. The best model was saved 
+4. AutoML also provides a glimpse of the top K parameters (can be seen in the studio) and their individual impact on the model.
 
 
 ### Results
