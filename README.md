@@ -46,7 +46,7 @@ We used Bandit policy for the early stopping of the experiment. This policy uses
 
 ### B. Auto ML Pipeline
 
-####### In this part too,w e were given a starter code.  We had to again import data from a URL, clean the data, and pass the cleaned data to the automl run.
+###### In this part too,we were given a starter code.  We had to again import data from a URL, split the data and pass it to the automl run.
 
 #### This part of the project involved the following steps:
 1. Data was cleaned and split to train and label
