@@ -1,0 +1,27 @@
+2020/10/27 16:21:35 logger.go:297: Attempt 1 of http call to http://10.0.0.4:16384/sendlogstoartifacts/info
+2020/10/27 16:21:35 logger.go:297: Attempt 1 of http call to http://10.0.0.4:16384/sendlogstoartifacts/status
+[2020-10-27T16:21:37.082007] Entering context manager injector.
+[context_manager_injector.py] Command line Options: Namespace(inject=['ProjectPythonPath:context_managers.ProjectPythonPath', 'RunHistory:context_managers.RunHistory', 'TrackUserError:context_managers.TrackUserError'], invocation=['train.py', '--C', '100', '--max_iter', '125'])
+Starting the daemon thread to refresh tokens in background for process with pid = 107
+Entering Run History Context Manager.
+Current directory:  /mnt/batch/tasks/shared/LS_root/jobs/quick-starts-ws-123220/azureml/hd_33f7854c-ceda-4594-8e97-99a980d7dfb9_14/mounts/workspaceblobstore/azureml/HD_33f7854c-ceda-4594-8e97-99a980d7dfb9_14
+Preparing to call script [ train.py ] with arguments: ['--C', '100', '--max_iter', '125']
+After variable expansion, calling script [ train.py ] with arguments: ['--C', '100', '--max_iter', '125']
+
+Script type = None
+/opt/miniconda/lib/python3.6/site-packages/azureml/dataprep/api/dataflow.py:722: UserWarning: Your pandas and pyarrow versions are incompatible. Please install pyarrow>=0.12.0 for improved performance of to_pandas_dataframe. You can ensure the correct version is installed by running: pip install pyarrow>=0.12.0 --upgrade
+  warnings.warn('Your pandas and pyarrow versions are incompatible. '
+test
+/opt/miniconda/lib/python3.6/site-packages/sklearn/linear_model/logistic.py:433: FutureWarning: Default solver will be changed to 'lbfgs' in 0.22. Specify a solver to silence this warning.
+  FutureWarning)
+Starting the daemon thread to refresh tokens in background for process with pid = 107
+
+
+[2020-10-27T16:21:58.664758] The experiment completed successfully. Finalizing run...
+[2020-10-27T16:21:58.664806] FinalizingInRunHistory is not called
+Cleaning up all outstanding Run operations, waiting 900.0 seconds
+2 items cleaning up...
+Cleanup took 5.659838438034058 seconds
+[2020-10-27T16:22:04.913888] Finished context manager injector.
+2020/10/27 16:22:05 logger.go:297: Attempt 1 of http call to http://10.0.0.4:16384/sendlogstoartifacts/status
+2020/10/27 16:22:05 logger.go:297: Process Exiting with Code:  0
