@@ -8,8 +8,10 @@
 
 ### Dataset and Algorithm:
 
-##### The dataset is a UCI Bank Marketing dataset. The classification goal is to predict if a client will subscribe to a term deposit with the bank.
-##### The dataset was given in form of a url. We had to create a tabular dataset using using TabularDatasetfactory class. The data is split in train and test sets in ratio of 77:33. It is preprocessed and cleaned by passing it through a training script train.py. 
+###### The dataset is a UCI Bank Marketing dataset. The classification goal is to predict if a client will subscribe to a term deposit with the bank.
+
+###### The dataset was given in form of a url. We had to create a tabular dataset using using TabularDatasetfactory class. The data is split in train and test sets in ratio of 77:33. It is preprocessed and cleaned by passing it through a training script train.py. 
+
 ##### Logistic Regression is used as the classification algorithm with accuracy as the primary metric.
 
 ### A. Hyperdrive Pipeline
@@ -19,8 +21,10 @@
 ### Hyperparameters to be Optimized for Hyperdrive Experiment
 1. RandomParameterSampling class:
 In this Parameter values of the parameter space are chosen from a set of discrete values or distribution over a continuous range. We used the choice function to define our 2 parameters- inverse regularization(C) and maximum iterations(max_iter), with a set of options. 
+
 #### The benefits of using these parameters are:
  a. Inverse regularization parameter(C)- Regularization is applying a penalty to increasing the magnitude of parameter values in order to de-incentivize overfitting. Here we used an inverse regularisation parameter C =1/λ. Lowering C - would strengthen the Lambda regulator.
+ 
  b. Max_iter: Maximum number of iterations taken for the solvers to converge. We can vary it according to the number of times we want our experiment to learn from data.
 
 2. Policy for Early Stopping: 
@@ -29,21 +33,20 @@ We used Bandit policy for the early stopping of the experiment. This policy uses
 
 #### This part of the project involved the following steps:
 
-
 1. First create a cluster using a new vm_size
-2.The datset is craeted using TabularDatasetfactory class 
+2. The datset is craeted using TabularDatasetfactory class 
 3. Split the dataset into test and train subsets
 4. Create parameter sampler. Inverse regularization (C) and maximum iterations (max_iter) are the two parameters to be optimized for logistic regression model and we give a range of options to choose the best.
-5.Create an estimator to run the pipeline from the train.py script
+5. Create an estimator to run the pipeline from the train.py script
 6. Create policy for early stopping: The range of options we can give in this policy like slack factor, evaluation interval can help to terminate run if the primary metric in specified parameters not found.
 7. The hyperdrive_config pipeline is created using the above parameter sampler, policy and estimator
 8. Submit the hyperdrive_config
 9. Get the best model, accuracy, parameters and save the best model.
 
+
 ### B. Auto ML Pipeline
 
-
-#### In this part too,w e were given a starter code.  We had to again import data from a URL, clean the data, and pass the cleaned data to the automl run.
+####### In this part too,w e were given a starter code.  We had to again import data from a URL, clean the data, and pass the cleaned data to the automl run.
 
 #### This part of the project involved the following steps:
 1. Data was cleaned and split to train and label
@@ -51,13 +54,13 @@ We used Bandit policy for the early stopping of the experiment. This policy uses
 3. The best model was saved 
 4. AutoML also provides a glimpse of the top K parameters (can be seen in the studio) and their individual impact on the model.
 
-######  Voting Ensemble was the best algorithm in the automl run with an accuracy of 91.79%. The top K features that impact the model performance included Duration, nr.employed, emp.var.rate.
+######  Voting Ensemble was the best algorithm in the automl run with an accuracy of 91.31%. The top K features that impact the model performance included Duration, nr.employed, emp.var.rate.
 
 
 
 ### Results
 
-Comparing the results of the two approaches, we find that Hyperdrive optimization gives an accuracy of 90.92% whereas AutoMl gives an accuracy of 91.79% which is almost a 1% improvement.
+Comparing the results of the two approaches, we find that Hyperdrive optimization gives an accuracy of 90.92% whereas AutoMl gives an accuracy of 91.31% which is almost a 0.40% improvement.
 The power of AutoML lies in the fact that it uses very powerful ensemble techniques like XGBoost, VotingEnsemble, LigthBGM and Random Forest in its pipeline and cross validates the models by splitting data.
 It is indeed a powerful and quick tool that data scientists can use to get a baseline model while working on huge datasets.
 
